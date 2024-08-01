@@ -1,0 +1,13 @@
+torch==2.1.2
+torchvision
+opencv-python
+scikit-learn
+pandas
+numpy
+pillow
+dill
+python-box
+python-dotenv
+python-multipart
+
+-e .
