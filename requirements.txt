@@ -3,7 +3,7 @@ torchvision
 opencv-python
 scikit-learn
 pandas
-numpy
+numpy==1.26.0
 pillow
 dill
 python-box

@@ -21,21 +21,18 @@ class PredictionPipeline:
         logger.info('Predicting the traffic sign...')
 
         logger.info('loading the best model parameters...')
-        self.model.load_state_dict(self.best_model_parameters)
+        self.model.load_state_dict(self.best_model_parameters['model_state_dict'])
 
         logger.info('Transforming the image...')
-        transformed_image = self.transform(self.img).unsqueeze(dim = 0)
-        logger.info('Shape of the image after transformation: {}'.format(img.shape))
-        logger.info('Data type of the image after transformation: {}'.format(img.dtype))
+        transformed_image = self.transform(self.img)
+        logger.info('Shape of the image after transformation: {}'.format(transformed_image.shape))
+        logger.info('Data type of the image after transformation: {}'.format(transformed_image.dtype))
 
         self.model.eval()
 
         with torch.inference_mode():
-            y_logits = self.model(transformed_image)
-            y_pred_prob = torch.softmax(y_logits, dim = 1)
-            y_pred = torch.argmax(y_pred_prob, dim = 1).cpu().numpy()[0]
+            y_logits = self.model(transformed_image.unsqueeze(dim = 0))
+            y_pred_probs = torch.softmax(y_logits, dim = 1)
+            y_pred_class = torch.argmax(y_pred_probs, dim = 1).cpu().numpy()[0]
 
-        logger.info('Prediction probability: {}'.format(y_pred_prob))
-        logger.info('Prediction completed successfully!')
-
-        return y_pred_prob
+        return y_pred_probs[0][y_pred_class].cpu().numpy(), y_pred_class
