@@ -1,5 +1,7 @@
 import torch
 import torch.nn as nn
+import cv2
+import numpy as np
 
 class TrafficSignRecognitionModel(nn.Module):
 
@@ -42,3 +44,17 @@ class TrafficSignRecognitionModel(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         
         return self.classifier(self.conv_block_3(self.conv_block_2(self.conv_block_1(x))))
+    
+class OpenCVTransformation:
+    def __init__(self):
+        pass
+
+    def __call__(self, img: np.ndarray):
+
+        if len(img.shape) == 3:
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+        clahe = cv2.createCLAHE(clipLimit = 2.0, tileGridSize = (8, 8))
+        img = clahe.apply(img)
+
+        return img
