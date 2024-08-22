@@ -9,7 +9,7 @@ data = pd.read_csv('research/traffic_sign.csv')
 frameWidth = 640
 frameHeight = 480
 brightness = 180
-threshold = 0.9
+threshold = 0.90
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 cap = cv2.VideoCapture(0)
