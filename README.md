@@ -2,9 +2,6 @@
 
 In recent years, we've witnessed a remarkable surge in autonomous vehicle technology, with major automotive companies vying to develop highly reliable and efficient self-driving cars. These innovative vehicles face numerous challenges, one of the most critical being accurate traffic sign detection. This capability is essential for ensuring compliance with traffic rules and regulations, thereby preventing potentially dangerous situations on the road.
 
-Here's a more polished and fluent version of your text:
-In recent years, we've witnessed a remarkable surge in autonomous vehicle technology, with major automotive companies vying to develop highly reliable and efficient self-driving cars. These innovative vehicles face numerous challenges, one of the most critical being accurate traffic sign detection. This capability is essential for ensuring compliance with traffic rules and regulations, thereby preventing potentially dangerous situations on the road.
-
 My project represents a focused approach to addressing this crucial aspect of autonomous driving through the application of Convolutional Neural Networks (CNNs). Leveraging the power of the PyTorch framework, I've developed a model capable of classifying a wide array of traffic signs with an impressive accuracy rate exceeding 90%. I have also used OpenCV to make it work in the real-time.
 
 This high level of accuracy is vital for real-world applications, as it significantly enhances the ability of autonomous vehicles to interpret and respond to traffic signage correctly. By contributing to the advancement of traffic sign recognition technology, this project aims to play a part in improving the overall safety and reliability of self-driving systems.
